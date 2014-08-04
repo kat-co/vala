@@ -42,6 +42,9 @@ func TestSetError(t *testing.T) {
 	BeginValidation().Validate(
 		Equals("foo", "bar", "foo"),
 	).CheckSetErrorAndPanic(&returnErr)
+
+	t.Error("We should have never reached this.")
+	t.FailNow()
 }
 
 func TestNot(t *testing.T) {
