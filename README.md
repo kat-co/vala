@@ -145,10 +145,10 @@ func AuthorIsCollaborator(authorName string, report *Report) Checker {
 
 func HandleReport(authorName string, report *Report, repository *Repository) {
 
-	BeginValidation().
-		Validate(AuthorIsCollaborator(authorName, report)).
-		Validate(AuthorCanUpload(authorName, repository)).
-		Validate(ReportFitsRepository(report, repository)).
-		CheckAndPanic()
+	BeginValidation().Validate(
+    	AuthorIsCollaborator(authorName, report),
+		AuthorCanUpload(authorName, repository),
+		ReportFitsRepository(report, repository),
+	).CheckAndPanic()
 }
 ```
