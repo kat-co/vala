@@ -86,7 +86,6 @@ Tier your validation:
 
 ```go
 func ClearValidation(a, b, c MyType) (err error) {
-  defer func() { recover() }
   err = BeginValidation().Validate(
     IsNotNil(a, "a"),
     IsNotNil(b, "b"),
