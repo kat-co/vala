@@ -155,3 +155,15 @@ func TestGreaterThan(t *testing.T) {
 		t.FailNow()
 	}
 }
+
+func TestStringNotEmpty(t *testing.T) {
+
+	err := BeginValidation().Validate(
+		StringNotEmpty("", "tmpA"),
+	).Check()
+
+	if err == nil {
+		t.Errorf("Expected an error.")
+		t.FailNow()
+	}
+}

@@ -134,6 +134,14 @@ func GreaterThan(param int, comparativeVal int, paramName string) Checker {
 	}
 }
 
+func StringNotEmpty(obtained, paramName string) Checker {
+	return func() (isNotEmpty bool, errMsg string) {
+		isNotEmpty = obtained != ""
+		errMsg = fmt.Sprintf("Parameter is an empty string: %s", paramName)
+		return
+	}
+}
+
 func validationFactory(numErrors int) *Validation {
 	return &Validation{make([]string, numErrors)}
 }
