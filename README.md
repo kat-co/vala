@@ -1,4 +1,4 @@
-vala
+vala [![GoDoc](https://godoc.org/github.com/katco-/vala?status.svg)](https://godoc.org/github.com/katco-/vala)
 ====
 
 A simple, extensible, library to make argument validation in Go palatable.
