@@ -1,6 +1,6 @@
 /*
-A simple, extensible, library to make argument validation in Go
-palatable.
+Package vala is a simple, extensible, library to make argument
+validation in Go palatable.
 
 This package uses the fluent programming style to provide
 simultaneously more robust and more terse parameter validation.
@@ -95,8 +95,8 @@ func (val *Validation) Check() error {
 	return val.constructErrorMessage()
 }
 
-// Aggregate all checker errors into a single error and panic with
-// this error.
+// CheckAndPanic aggregates all checker errors into a single error and
+// panics with this error.
 func (val *Validation) CheckAndPanic() *Validation {
 	if val == nil || len(val.Errors) <= 0 {
 		return val
@@ -139,7 +139,7 @@ func (val *Validation) Validate(checkers ...Checker) *Validation {
 
 func (val *Validation) constructErrorMessage() error {
 	return fmt.Errorf(
-		"Parameter validation failed:\t%s",
+		"parameter validation failed:\t%s",
 		strings.Join(val.Errors, "\n\t"),
 	)
 }
