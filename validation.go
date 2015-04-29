@@ -24,7 +24,7 @@ specification, you can pass it into the Validate method:
 	func ReportFitsRepository(report *Report, repository *Repository) Checker {
 		return func() (passes bool, err error) {
 
-			err = fmt.Errof("A %s report does not belong in a %s repository.", report.Type, repository.Type)
+			err = fmt.Errorf("A %s report does not belong in a %s repository.", report.Type, repository.Type)
 			passes = (repository.Type == report.Type)
 			return passes, err
 		}
@@ -32,7 +32,7 @@ specification, you can pass it into the Validate method:
 
 	func AuthorCanUpload(authorName string, repository *Repository) Checker {
 		return func() (passes bool, err error) {
-			err = fmt.Errof("%s does not have access to this repository.", authorName)
+			err = fmt.Errorf("%s does not have access to this repository.", authorName)
 			passes = !repository.AuthorCanUpload(authorName)
 			return passes, err
 		}
