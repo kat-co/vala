@@ -70,10 +70,6 @@ import (
 	"strings"
 )
 
-func validationFactory(numErrors int) *Validation {
-	return &Validation{make([]string, numErrors)}
-}
-
 // Validation contains all the errors from performing Checkers, and is
 // the fluent type off which all Validation methods hang.
 type Validation struct {
@@ -127,7 +123,7 @@ func (val *Validation) Validate(checkers ...Checker) *Validation {
 	for _, checker := range checkers {
 		if pass, msg := checker(); !pass {
 			if val == nil {
-				val = validationFactory(1)
+				val = &Validation{}
 			}
 
 			val.Errors = append(val.Errors, msg)
